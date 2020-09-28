@@ -16,7 +16,9 @@ namespace Notepad
         // Atributo que indica si se abrió un archivo.
         private static bool archivoAbierto = false;
         // Atributo que indica el nombre del archivo actual.
-        private static string nombreArchivo = "";
+        private static string nombreArchivo = "Sin título: Bloc de Notas";
+        // Variable que guarda el texto inicial cuando no se han hecho cambios.
+        private string textoInicial = "";
         public Form1()
         {
             InitializeComponent();
@@ -35,16 +37,20 @@ namespace Notepad
             //open = file.ReadLine();
             //richTextBox1.Text = open.ToString();
 
-            OpenFileDialog open = new OpenFileDialog();
+            OpenFileDialog abrir = new OpenFileDialog();
             // Poner un filtro para el tipo de archivos que se muestran.
-            open.Filter = "Archivos de texto|*.txt";
+            abrir.Filter = "Archivos de texto|*.txt";
             // Se se aceptó abrir un archivo, lo mostrará
-            if (open.ShowDialog() == DialogResult.OK)
+            if (abrir.ShowDialog() == DialogResult.OK)
                 // Aquí muestra el archivo en la caja de texto.
-                richTextBox1.Text = File.ReadAllText(open.FileName);
+                richTextBox1.Text = File.ReadAllText(abrir.FileName);
 
             // Establecer el nombre del archivo arriba.
-            this.Text = open.FileName + ".txt: Bloc de Notas";
+            // El SafeFileName regresa el texto sin el directorio.
+            this.Text = nombreArchivo = abrir.SafeFileName + ": Bloc de Notas";
+            //this.Text = nombreArchivo + ": Bloc de Notas";
+            // Como se abrió un archivo, su texto es el inicial.
+            textoInicial = richTextBox1.Text;
             // Indicar que ya se abrió un archivo.
             archivoAbierto = true;
         }
@@ -61,6 +67,8 @@ namespace Notepad
                 }
 
             }
+            // Como se guardó el archivo, entonces el texto inicial es este.
+            textoInicial = richTextBox1.Text;
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -72,7 +80,7 @@ namespace Notepad
         {
             richTextBox1.Clear();
 
-            this.Text = "Sin título: Bloc de Notas";
+            this.Text = nombreArchivo = "Sin título: Bloc de Notas";
             // Indicar que ahora mismo no hay un archivo abierto, ya que este es nuevo y no tiene título.
             archivoAbierto = false;
         }
@@ -110,6 +118,15 @@ namespace Notepad
         public static string getNombreArchivo()
         {
             return nombreArchivo;
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            // Si el texto inicial es diferente al texto actual de la caja de texto, indicarlo.
+            if (!textoInicial.Equals(richTextBox1.Text))
+                this.Text = "*" + nombreArchivo;
+            else // Si la cadena es igual a la inicial, quitar el asterisco.
+                this.Text = nombreArchivo;
         }
     }
 }
