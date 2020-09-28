@@ -31,12 +31,9 @@ namespace Notepad
 
         private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //String open;
-            //openFileDialog1.ShowDialog();
-            //System.IO.StreamReader file = new System.IO.StreamReader(openFileDialog1.FileName);
-            //open = file.ReadLine();
-            //richTextBox1.Text = open.ToString();
-
+            // Si se han hecho modificaciones preguntar que si quiere guardar.
+            // if(isTextoCambiado())
+                // Código de procedimiento aquí.
             OpenFileDialog abrir = new OpenFileDialog();
             // Poner un filtro para el tipo de archivos que se muestran.
             abrir.Filter = "Archivos de texto|*.txt";
@@ -123,10 +120,16 @@ namespace Notepad
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
             // Si el texto inicial es diferente al texto actual de la caja de texto, indicarlo.
-            if (!textoInicial.Equals(richTextBox1.Text))
+            if (isTextoCambiado())
                 this.Text = "*" + nombreArchivo;
             else // Si la cadena es igual a la inicial, quitar el asterisco.
                 this.Text = nombreArchivo;
+        }
+        // Método que indicará si el texto del archivo ha cambiado o no.
+        private bool isTextoCambiado()
+        {
+            // Si el texto ha cambiado, regresará true.
+            return !textoInicial.Equals(richTextBox1.Text);
         }
     }
 }
