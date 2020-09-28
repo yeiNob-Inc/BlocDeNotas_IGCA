@@ -14,6 +14,7 @@ namespace Notepad
 {
     abstract class Archivo
     {
+        private static string directorio; // Aquí se guardará el directorio del archivo actual.
         /* Método que abre el cuadro para abrir un archivo,
             y regresa su nombre.*/
         public static string AbrirArchivo(RichTextBox texto)
@@ -28,7 +29,7 @@ namespace Notepad
 
             return abrir.SafeFileName;
         }
-        /* MÉTODO QUE MUESTRA VENTANA DE GUARDAR CAMBIOS SI LO SHAY.*/
+        /* MÉTODO QUE MUESTRA VENTANA DE GUARDAR CAMBIOS SI LOS HAY.*/
         public static void HayCambios(bool isTextoCambiado, string nombreArchivo, int tamNombre)
         {
             // Si ha cambiado el texto
@@ -44,7 +45,9 @@ namespace Notepad
         {
             // Aquí se inicializa el cuadro de dialogo para guardar.
             SaveFileDialog save = new SaveFileDialog();
+            // Esto filtrará el tipo de archivos que salgan en pantalla.
             save.Filter = "Archivos de texto|*.txt";
+            save.FileName = "Sin título.txt"; // Este nombre es el que saldrá al abrir la ventana de guardado.
             // Aquí se abre un cuadro de diálogo.
             // Si presionamos "save" en el cuadro de diálogo, guardar el archivo.
             if (save.ShowDialog() == DialogResult.OK)
@@ -60,7 +63,7 @@ namespace Notepad
         /* Método que guarda el texto en un archivo que ya está creado.
             Si se trata de uno nuevo, mostrar el GuardarComo, si es uno abierto
             o guardado anteriormente, solo sobreescribirlo.*/
-        public static void Guardar(bool existeArchivo, string directorio, string contenido)
+        public static void Guardar(bool existeArchivo, string contenido)
         {
             // Si el archivo ya existe, sobreescribirlo.
             if (existeArchivo)

@@ -56,16 +56,7 @@ namespace Notepad
 
         private void guardarComoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.FileName = "Sin título.txt";
-            var save = saveFileDialog1.ShowDialog();
-              if(save == DialogResult.OK)
-            {
-                using (var savefile = new System.IO.StreamWriter(saveFileDialog1.FileName))
-                {
-                    savefile.WriteLine(saveFileDialog1.FileName);
-                }
-
-            }
+            Archivo.GuardarComo(richTextBox1.Text);
             // Como se guardó el archivo, entonces el texto inicial es este.
             textoInicial = richTextBox1.Text;
             existeArchivo = true;
@@ -73,6 +64,7 @@ namespace Notepad
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //Archivo.HayCambios(IsTextoCambiado(), );
             Environment.Exit(0);
         }
 
