@@ -8,3 +8,13 @@ C:\Users\noble\OneDrive\Documentos\5to Semestre\graficacion\Notepad\Notepad\obj\
 C:\Users\noble\OneDrive\Documentos\5to Semestre\graficacion\Notepad\Notepad\obj\Debug\Notepad.csproj.CoreCompileInputs.cache
 C:\Users\noble\OneDrive\Documentos\5to Semestre\graficacion\Notepad\Notepad\obj\Debug\Notepad.exe
 C:\Users\noble\OneDrive\Documentos\5to Semestre\graficacion\Notepad\Notepad\obj\Debug\Notepad.pdb
+C:\Users\games_000.ASHJAC\OneDrive - Universidad Autonoma de San Luis Potosi - UASLP\Documents\UASLP\5to SEMESTRE\IGCA [8 - 9AM]\1P\TAREAS\BlocDeNotas_IGCA\Notepad\bin\Debug\Notepad.exe.config
+C:\Users\games_000.ASHJAC\OneDrive - Universidad Autonoma de San Luis Potosi - UASLP\Documents\UASLP\5to SEMESTRE\IGCA [8 - 9AM]\1P\TAREAS\BlocDeNotas_IGCA\Notepad\bin\Debug\Notepad.exe
+C:\Users\games_000.ASHJAC\OneDrive - Universidad Autonoma de San Luis Potosi - UASLP\Documents\UASLP\5to SEMESTRE\IGCA [8 - 9AM]\1P\TAREAS\BlocDeNotas_IGCA\Notepad\bin\Debug\Notepad.pdb
+C:\Users\games_000.ASHJAC\OneDrive - Universidad Autonoma de San Luis Potosi - UASLP\Documents\UASLP\5to SEMESTRE\IGCA [8 - 9AM]\1P\TAREAS\BlocDeNotas_IGCA\Notepad\obj\Debug\Notepad.csprojAssemblyReference.cache
+C:\Users\games_000.ASHJAC\OneDrive - Universidad Autonoma de San Luis Potosi - UASLP\Documents\UASLP\5to SEMESTRE\IGCA [8 - 9AM]\1P\TAREAS\BlocDeNotas_IGCA\Notepad\obj\Debug\Notepad.Form1.resources
+C:\Users\games_000.ASHJAC\OneDrive - Universidad Autonoma de San Luis Potosi - UASLP\Documents\UASLP\5to SEMESTRE\IGCA [8 - 9AM]\1P\TAREAS\BlocDeNotas_IGCA\Notepad\obj\Debug\Notepad.Properties.Resources.resources
+C:\Users\games_000.ASHJAC\OneDrive - Universidad Autonoma de San Luis Potosi - UASLP\Documents\UASLP\5to SEMESTRE\IGCA [8 - 9AM]\1P\TAREAS\BlocDeNotas_IGCA\Notepad\obj\Debug\Notepad.csproj.GenerateResource.cache
+C:\Users\games_000.ASHJAC\OneDrive - Universidad Autonoma de San Luis Potosi - UASLP\Documents\UASLP\5to SEMESTRE\IGCA [8 - 9AM]\1P\TAREAS\BlocDeNotas_IGCA\Notepad\obj\Debug\Notepad.csproj.CoreCompileInputs.cache
+C:\Users\games_000.ASHJAC\OneDrive - Universidad Autonoma de San Luis Potosi - UASLP\Documents\UASLP\5to SEMESTRE\IGCA [8 - 9AM]\1P\TAREAS\BlocDeNotas_IGCA\Notepad\obj\Debug\Notepad.exe
+C:\Users\games_000.ASHJAC\OneDrive - Universidad Autonoma de San Luis Potosi - UASLP\Documents\UASLP\5to SEMESTRE\IGCA [8 - 9AM]\1P\TAREAS\BlocDeNotas_IGCA\Notepad\obj\Debug\Notepad.pdb
