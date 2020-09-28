@@ -30,11 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GuardarComo));
             this.txtGuardarCambios = new System.Windows.Forms.Label();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnNoGuardar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripGuardar = new System.Windows.Forms.ToolStripButton();
             this.toolStripNoGuardar = new System.Windows.Forms.ToolStripButton();
             this.toolStripCancelar = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
@@ -45,38 +42,21 @@
             resources.ApplyResources(this.txtGuardarCambios, "txtGuardarCambios");
             this.txtGuardarCambios.Name = "txtGuardarCambios";
             // 
-            // btnGuardar
-            // 
-            resources.ApplyResources(this.btnGuardar, "btnGuardar");
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            // 
-            // btnNoGuardar
-            // 
-            resources.ApplyResources(this.btnNoGuardar, "btnNoGuardar");
-            this.btnNoGuardar.Name = "btnNoGuardar";
-            this.btnNoGuardar.UseVisualStyleBackColor = true;
-            // 
-            // btnCancelar
-            // 
-            resources.ApplyResources(this.btnCancelar, "btnCancelar");
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
             // toolStrip1
             // 
             resources.ApplyResources(this.toolStrip1, "toolStrip1");
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
+            this.toolStripGuardar,
             this.toolStripNoGuardar,
             this.toolStripCancelar});
             this.toolStrip1.Name = "toolStrip1";
             // 
-            // toolStripButton1
+            // toolStripGuardar
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            resources.ApplyResources(this.toolStripButton1, "toolStripButton1");
-            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            resources.ApplyResources(this.toolStripGuardar, "toolStripGuardar");
+            this.toolStripGuardar.Name = "toolStripGuardar";
+            this.toolStripGuardar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.toolStripGuardar_MouseUp);
             // 
             // toolStripNoGuardar
             // 
@@ -94,9 +74,6 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnNoGuardar);
-            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtGuardarCambios);
             this.Controls.Add(this.toolStrip1);
             this.MaximizeBox = false;
@@ -113,11 +90,8 @@
         #endregion
 
         private System.Windows.Forms.Label txtGuardarCambios;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnNoGuardar;
-        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripGuardar;
         private System.Windows.Forms.ToolStripButton toolStripNoGuardar;
         private System.Windows.Forms.ToolStripButton toolStripCancelar;
     }

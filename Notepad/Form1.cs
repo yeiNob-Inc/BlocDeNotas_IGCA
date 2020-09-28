@@ -11,7 +11,7 @@ using System.IO;
 
 namespace Notepad
 {
-    public partial class Form1 : Form
+    public partial class BlocDeNotas : Form
     {
         // Atributo que indica si se abrió un archivo.
         private static bool archivoAbierto = false;
@@ -21,7 +21,7 @@ namespace Notepad
         private string textoInicial = "";
         // Este atributo indica el tamaño de la cadena del nombre del archivo.
         private int tamNombre = "Sin título".Length;
-        public Form1()
+        public BlocDeNotas()
         {
             InitializeComponent();
         }

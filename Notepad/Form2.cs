@@ -21,11 +21,16 @@ namespace Notepad
             InitializeComponent();
             // Se saca el nombre original del archivo.
             nombreArchivo = nombreArchivo.Substring(0, tamNombre);
-            Size textSize = TextRenderer.MeasureText("¿Quieres guardar los cambios en " + nombreArchivo + "?", this.Font);
+            // Size textSize = TextRenderer.MeasureText("¿Quieres guardar los cambios en " + nombreArchivo + "?", this.Font);
             //  ("¿Quieres guardar los cambios en " + nombreArchivo + "?").Length;
-            this.Width = textSize.Width;
+            // this.Width = textSize.Width;
             //this.Height = textSize.Height;
             txtGuardarCambios.Text = "¿Quieres guardar los cambios en " + nombreArchivo + "?";
+        }
+
+        private void toolStripGuardar_MouseUp(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }
