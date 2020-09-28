@@ -35,6 +35,8 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripNoGuardar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripCancelar = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,24 +67,38 @@
             // 
             resources.ApplyResources(this.toolStrip1, "toolStrip1");
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1});
+            this.toolStripButton1,
+            this.toolStripNoGuardar,
+            this.toolStripCancelar});
             this.toolStrip1.Name = "toolStrip1";
             // 
             // toolStripButton1
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             resources.ApplyResources(this.toolStripButton1, "toolStripButton1");
             this.toolStripButton1.Name = "toolStripButton1";
+            // 
+            // toolStripNoGuardar
+            // 
+            this.toolStripNoGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            resources.ApplyResources(this.toolStripNoGuardar, "toolStripNoGuardar");
+            this.toolStripNoGuardar.Name = "toolStripNoGuardar";
+            // 
+            // toolStripCancelar
+            // 
+            resources.ApplyResources(this.toolStripCancelar, "toolStripCancelar");
+            this.toolStripCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripCancelar.Name = "toolStripCancelar";
             // 
             // GuardarComo
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnNoGuardar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtGuardarCambios);
+            this.Controls.Add(this.toolStrip1);
             this.MaximizeBox = false;
             this.Name = "GuardarComo";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
@@ -102,5 +118,7 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripNoGuardar;
+        private System.Windows.Forms.ToolStripButton toolStripCancelar;
     }
 }
