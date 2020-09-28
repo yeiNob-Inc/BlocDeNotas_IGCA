@@ -28,5 +28,46 @@ namespace Notepad
 
             return abrir.SafeFileName;
         }
+        /* MÉTODO QUE MUESTRA VENTANA DE GUARDAR CAMBIOS SI LO SHAY.*/
+        public static void HayCambios(bool isTextoCambiado, string nombreArchivo, int tamNombre)
+        {
+            // Si ha cambiado el texto
+            if (isTextoCambiado)
+            {   // Si se ha modificado el texto, mostrará la ventana de guardado.
+                GuardarComo g = new GuardarComo(nombreArchivo, tamNombre);
+                g.ShowDialog();
+            }
+
+        }
+        /* Método que mostrará la ventana de guardado.*/
+        public static void GuardarComo(string contenido)
+        {
+            // Aquí se inicializa el cuadro de dialogo para guardar.
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = "Archivos de texto|*.txt";
+            // Aquí se abre un cuadro de diálogo.
+            // Si presionamos "save" en el cuadro de diálogo, guardar el archivo.
+            if (save.ShowDialog() == DialogResult.OK)
+            {   // Aquí se escribe el contenido al archivo que creamos.
+                File.WriteAllText(save.FileName, contenido);
+                // Si al leer el archivo es igual a la cadena de contenido, mostrar emergente.
+                if (File.ReadAllText(save.FileName).Equals(contenido))
+                    MessageBox.Show("Archivo guardado con éxito.");
+            }
+            else
+                MessageBox.Show("No se guardó el archivo. No se presionó el botón de guardar.");
+        }
+        /* Método que guarda el texto en un archivo que ya está creado.
+            Si se trata de uno nuevo, mostrar el GuardarComo, si es uno abierto
+            o guardado anteriormente, solo sobreescribirlo.*/
+        public static void Guardar(bool existeArchivo, string directorio, string contenido)
+        {
+            // Si el archivo ya existe, sobreescribirlo.
+            if (existeArchivo)
+                File.WriteAllText(directorio, contenido);
+            else // Si no existe el archivo, llamar a GuardarComo().
+                GuardarComo(contenido);
+
+        }
     }
 }

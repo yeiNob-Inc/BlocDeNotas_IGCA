@@ -22,6 +22,8 @@ namespace Notepad
         private string textoInicial = "";
         // Este atributo indica el tamaño de la cadena del nombre del archivo.
         private int tamNombre = "Sin título".Length;
+        // Atributo que indicará si está abierto un archivo existente o no.
+        private bool existeArchivo = false;
         public BlocDeNotas()
         {
             InitializeComponent();
@@ -35,7 +37,7 @@ namespace Notepad
         private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Si se han hecho modificaciones preguntar que si quiere guardar.
-            guardarCambios();
+            Archivo.HayCambios(IsTextoCambiado(), nombreArchivo, tamNombre); ;
             // if(isTextoCambiado())
             // Código de procedimiento aquí.
 
@@ -49,7 +51,7 @@ namespace Notepad
             // Como se abrió un archivo, su texto es el inicial.
             textoInicial = richTextBox1.Text;
             // Indicar que ya se abrió un archivo.
-            archivoAbierto = true;
+            archivoAbierto = existeArchivo = true;
         }
 
         private void guardarComoToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -66,6 +68,7 @@ namespace Notepad
             }
             // Como se guardó el archivo, entonces el texto inicial es este.
             textoInicial = richTextBox1.Text;
+            existeArchivo = true;
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -120,28 +123,19 @@ namespace Notepad
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
             // Si el texto inicial es diferente al texto actual de la caja de texto, indicarlo.
-            if (isTextoCambiado())
+            if (IsTextoCambiado())
                 this.Text = "*" + nombreArchivo;
             else // Si la cadena es igual a la inicial, quitar el asterisco.
                 this.Text = nombreArchivo;
         }
         // Método que indicará si el texto del archivo ha cambiado o no.
-        private bool isTextoCambiado()
+        private bool IsTextoCambiado()
         {
             // Si el texto ha cambiado, regresará true.
             return !textoInicial.Equals(richTextBox1.Text);
         }
         /* - Método que preguntará si se quieren guardar los cambios cuando
                 se ha modificado el archivo.*/
-        private void guardarCambios()
-        {
-            // Si ha cambiado el texto
-            if (isTextoCambiado())
-            {   // Si se ha modificado el texto, mostrará la ventana de guardado.
-                GuardarComo g = new GuardarComo(nombreArchivo, tamNombre);
-                g.ShowDialog();
-            }
-
-        }
+        
     }
 }
