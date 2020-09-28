@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
+
 namespace Notepad
 {
     public partial class BlocDeNotas : Form
@@ -36,20 +37,14 @@ namespace Notepad
             // Si se han hecho modificaciones preguntar que si quiere guardar.
             guardarCambios();
             // if(isTextoCambiado())
-                // Código de procedimiento aquí.
-            OpenFileDialog abrir = new OpenFileDialog();
-            // Poner un filtro para el tipo de archivos que se muestran.
-            abrir.Filter = "Archivos de texto|*.txt";
-            // Se se aceptó abrir un archivo, lo mostrará
-            if (abrir.ShowDialog() == DialogResult.OK)
-                // Aquí muestra el archivo en la caja de texto.
-                richTextBox1.Text = File.ReadAllText(abrir.FileName);
+            // Código de procedimiento aquí.
 
+            nombreArchivo = Archivo.AbrirArchivo(richTextBox1);
             // Aquí se saca el tamaño del nombre sin la extensión final, por eso le resto 4.
-            tamNombre = abrir.SafeFileName.Length - 4;
+            tamNombre = nombreArchivo.Length - 4;
             // Establecer el nombre del archivo arriba.
             // El SafeFileName regresa el texto sin el directorio.
-            this.Text = nombreArchivo = abrir.SafeFileName + ": Bloc de Notas";
+            this.Text = nombreArchivo += ": Bloc de Notas";
             //this.Text = nombreArchivo + ": Bloc de Notas";
             // Como se abrió un archivo, su texto es el inicial.
             textoInicial = richTextBox1.Text;
