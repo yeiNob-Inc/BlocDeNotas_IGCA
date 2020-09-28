@@ -18,3 +18,4 @@ C:\Users\games_000.ASHJAC\OneDrive - Universidad Autonoma de San Luis Potosi - U
 C:\Users\games_000.ASHJAC\OneDrive - Universidad Autonoma de San Luis Potosi - UASLP\Documents\UASLP\5to SEMESTRE\IGCA [8 - 9AM]\1P\TAREAS\BlocDeNotas_IGCA\Notepad\obj\Debug\Notepad.csproj.CoreCompileInputs.cache
 C:\Users\games_000.ASHJAC\OneDrive - Universidad Autonoma de San Luis Potosi - UASLP\Documents\UASLP\5to SEMESTRE\IGCA [8 - 9AM]\1P\TAREAS\BlocDeNotas_IGCA\Notepad\obj\Debug\Notepad.exe
 C:\Users\games_000.ASHJAC\OneDrive - Universidad Autonoma de San Luis Potosi - UASLP\Documents\UASLP\5to SEMESTRE\IGCA [8 - 9AM]\1P\TAREAS\BlocDeNotas_IGCA\Notepad\obj\Debug\Notepad.pdb
+C:\Users\games_000.ASHJAC\OneDrive - Universidad Autonoma de San Luis Potosi - UASLP\Documents\UASLP\5to SEMESTRE\IGCA [8 - 9AM]\1P\TAREAS\BlocDeNotas_IGCA\Notepad\obj\Debug\Notepad.GuardarComo.resources

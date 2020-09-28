@@ -19,6 +19,8 @@ namespace Notepad
         private static string nombreArchivo = "Sin título: Bloc de Notas";
         // Variable que guarda el texto inicial cuando no se han hecho cambios.
         private string textoInicial = "";
+        // Este atributo indica el tamaño de la cadena del nombre del archivo.
+        private int tamNombre = "Sin título".Length;
         public Form1()
         {
             InitializeComponent();
@@ -32,6 +34,7 @@ namespace Notepad
         private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Si se han hecho modificaciones preguntar que si quiere guardar.
+            guardarCambios();
             // if(isTextoCambiado())
                 // Código de procedimiento aquí.
             OpenFileDialog abrir = new OpenFileDialog();
@@ -42,6 +45,8 @@ namespace Notepad
                 // Aquí muestra el archivo en la caja de texto.
                 richTextBox1.Text = File.ReadAllText(abrir.FileName);
 
+            // Aquí se saca el tamaño del nombre sin la extensión final, por eso le resto 4.
+            tamNombre = abrir.SafeFileName.Length - 4;
             // Establecer el nombre del archivo arriba.
             // El SafeFileName regresa el texto sin el directorio.
             this.Text = nombreArchivo = abrir.SafeFileName + ": Bloc de Notas";
@@ -54,7 +59,7 @@ namespace Notepad
 
         private void guardarComoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.FileName = "Untitled.txt";
+            saveFileDialog1.FileName = "Sin título.txt";
             var save = saveFileDialog1.ShowDialog();
               if(save == DialogResult.OK)
             {
@@ -130,6 +135,18 @@ namespace Notepad
         {
             // Si el texto ha cambiado, regresará true.
             return !textoInicial.Equals(richTextBox1.Text);
+        }
+        /* - Método que preguntará si se quieren guardar los cambios cuando
+                se ha modificado el archivo.*/
+        private void guardarCambios()
+        {
+            // Si ha cambiado el texto
+            if (isTextoCambiado())
+            {   // Si se ha modificado el texto, mostrará la ventana de guardado.
+                GuardarComo g = new GuardarComo(nombreArchivo, tamNombre);
+                g.ShowDialog();
+            }
+
         }
     }
 }
