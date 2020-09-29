@@ -38,7 +38,6 @@ namespace Notepad
                 texto.Text = File.ReadAllText(abrir.FileName);
                 // Aquí guarda el nombre del archivo con su extensión.
                 nombreArchivo = abrir.SafeFileName;
-                Console.WriteLine("\n -> Nombre del archivo: " + nombreArchivo);
                 // Aquí cambiamos el tamaño del nombre restándole su extensión.
                 tamNombre = nombreArchivo.Length - 4;
                 // Aquí se guarda el directorio con el nombre del archivo.

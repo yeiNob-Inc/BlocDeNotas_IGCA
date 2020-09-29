@@ -114,8 +114,14 @@ namespace Notepad
             // Si el texto ha cambiado, regresará true.
             return !textoInicial.Equals(richTextBox1.Text);
         }
+
+        // Evento para que cuando se le dé a la "X" y se esté cerrando, se fije si hay cambios.
+        private void BlocDeNotas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Archivo.HayCambios(IsTextoCambiado());
+        }
         /* - Método que preguntará si se quieren guardar los cambios cuando
-                se ha modificado el archivo.*/
-        
+       se ha modificado el archivo.*/
+
     }
 }
