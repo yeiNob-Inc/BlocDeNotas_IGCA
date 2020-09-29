@@ -23,7 +23,9 @@ namespace Notepad
             formaPrincipal = formaQueLlama as BlocDeNotas;
             InitializeComponent();
         }
-
+        /* FUENTE: Find text in string with C#
+         * https://stackoverflow.com/questions/10709821/find-text-in-string-with-c-sharp
+         */
         private void btnBuscar_MouseUp(object sender, MouseEventArgs e)
         {
             if (this.formaPrincipal.GetRichTextBox().Text.Contains(txtBuscar.Text))
@@ -32,6 +34,8 @@ namespace Notepad
                 int inicio = this.formaPrincipal.GetRichTextBox().Text.IndexOf(txtBuscar.Text);
                 // Inicio de la cadena y su tamaño.
                 this.formaPrincipal.GetRichTextBox().Select(inicio, txtBuscar.Text.Length);
+                // Mostrar que seleccione la ventana del Bloc para ver la selección.
+                MessageBox.Show("Presiona la ventana del Bloc de Notas para ver la selección.");
                 // Ahora reiniciar la posición del inicio de la búsqueda.
                 //inicio = this.formaPrincipal.GetRichTextBox().Text.IndexOf(txtBuscar.Text, inicio);
             }
