@@ -1,0 +1,21 @@
+ - INTERFACES GRÁFICAS CON APLICACIONES
+ - PARCIAL 1 - [2020/2021-I]
+ - TAREA 2 - Cuenta como examen: Bloc de Notas
+	-> Fecha de entrega: Martes, 29 de septiembre de 2020
+
+ - INTEGRANTES:
+	- González Rodríguez Germán Antonio
+	- Flores Rodríguez Francisco Jacob
+
+ - INSTRUCCIONES:
+	Bloc de Notas que debe de contener:
+		- Abrir, nuevo, guardar, guardar
+		como, salir
+		- Copiar, cortar y pegar
+		- Cuadro de búsqueda
+	* Este ejercicio cuenta como el examen.
+
+	- Archivo rar que contiene un video mostrando
+	la ejecución del programa y explicación breve
+	del código. El archivo rar deberá contener
+	también todo el código del proyecto.

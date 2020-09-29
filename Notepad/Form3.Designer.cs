@@ -33,8 +33,8 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.grupoDireccion = new System.Windows.Forms.GroupBox();
-            this.radioButtonSubir = new System.Windows.Forms.RadioButton();
             this.radioButtonBajar = new System.Windows.Forms.RadioButton();
+            this.radioButtonSubir = new System.Windows.Forms.RadioButton();
             this.grupoDireccion.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,18 +78,6 @@
             this.grupoDireccion.Text = "Direccion";
             this.grupoDireccion.Visible = false;
             // 
-            // radioButtonSubir
-            // 
-            this.radioButtonSubir.AutoSize = true;
-            this.radioButtonSubir.Location = new System.Drawing.Point(7, 20);
-            this.radioButtonSubir.Name = "radioButtonSubir";
-            this.radioButtonSubir.Size = new System.Drawing.Size(49, 17);
-            this.radioButtonSubir.TabIndex = 0;
-            this.radioButtonSubir.TabStop = true;
-            this.radioButtonSubir.Text = "Subir";
-            this.radioButtonSubir.UseVisualStyleBackColor = true;
-            this.radioButtonSubir.Visible = false;
-            // 
             // radioButtonBajar
             // 
             this.radioButtonBajar.AutoSize = true;
@@ -101,6 +89,18 @@
             this.radioButtonBajar.Text = "Bajar";
             this.radioButtonBajar.UseVisualStyleBackColor = true;
             this.radioButtonBajar.Visible = false;
+            // 
+            // radioButtonSubir
+            // 
+            this.radioButtonSubir.AutoSize = true;
+            this.radioButtonSubir.Location = new System.Drawing.Point(7, 20);
+            this.radioButtonSubir.Name = "radioButtonSubir";
+            this.radioButtonSubir.Size = new System.Drawing.Size(49, 17);
+            this.radioButtonSubir.TabIndex = 0;
+            this.radioButtonSubir.TabStop = true;
+            this.radioButtonSubir.Text = "Subir";
+            this.radioButtonSubir.UseVisualStyleBackColor = true;
+            this.radioButtonSubir.Visible = false;
             // 
             // Buscar
             // 

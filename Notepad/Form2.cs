@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace Notepad
 {
@@ -25,32 +17,32 @@ namespace Notepad
             this.contenido = contenido;
             // Se saca el nombre original del archivo.
             nombreArchivo = nombreArchivo.Substring(0, tamNombre);
-            // Size textSize = TextRenderer.MeasureText("¿Quieres guardar los cambios en " + nombreArchivo + "?", this.Font);
-            //  ("¿Quieres guardar los cambios en " + nombreArchivo + "?").Length;
-            // this.Width = textSize.Width;
-            //this.Height = textSize.Height;
             txtGuardarCambios.Text = "¿Quieres guardar los cambios en " + nombreArchivo + "?";
         }
-
+        /* Al presionar el botón de guardado hará el procedimiento indicado..*/
         private void toolStripGuardar_MouseUp(object sender, MouseEventArgs e)
         {
             cuadroDialogoValor = DialogResult.OK;
             Archivo.Guardar(contenido);
             this.Close();
         }
-
+        /* Método que hará que la variable estática indique que no se
+                quieren guardar los cambios.*/
         private void toolStripNoGuardar_MouseUp(object sender, MouseEventArgs e)
         {
             cuadroDialogoValor = DialogResult.No;
             this.Close();
         }
 
-        // No sé muy bien cómo implementar lo de cancelar.
+        /* - Métoo que al cancelar, cambia un atributo estático que
+                indicará al programa inicial que no se haga nada.*/
         private void toolStripCancelar_MouseUp(object sender, MouseEventArgs e)
         {
             cuadroDialogoValor = DialogResult.Cancel;
             this.Close();
         }
+        /* Para otener el valor de si se aceptó, no se aceptó,
+            o se canceló la operación.*/
         public static DialogResult GetCuadroDialogoValor()
         {
             return cuadroDialogoValor;

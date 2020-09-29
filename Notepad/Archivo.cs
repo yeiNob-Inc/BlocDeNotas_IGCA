@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using System.IO; // Para los archivos.
 
 /* Clase que manejará lo que tiene que ver con archivos.
@@ -132,22 +127,5 @@ namespace Notepad
         {
             existeArchivo = false;
         }
-        ///* - Método que cambia los atributos de nomreArchivo, directorio, y esos.*/
-        //private static void cambiarAtributosArchivo(FileDialog archivo)
-        //{
-        //    // Aquí guarda el nombre del archivo con su extensión.
-        //    nombreArchivo = abrir.SafeFileName;
-        //    // Aquí cambiamos el tamaño del nombre restándole su extensión.
-        //    tamNombre = nombreArchivo.Length - 4;
-        //    // Aquí se guarda el directorio con el nombre del archivo.
-        //    directorio = abrir.FileName;
-        //    // Indicar que el archivo actual ya está guardado.
-        //    existeArchivo = true;
-        //    // Indicar que ya hay un archivo abierto.
-        //    archivoAbierto = true;
-        //    // Cambiamos el título de la ventana.
-        //    CambiarTitulo(nombreArchivo);
-
-        //}
     }
 }
