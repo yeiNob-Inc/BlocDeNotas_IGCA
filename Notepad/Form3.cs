@@ -47,26 +47,22 @@ namespace Notepad
             //}
             //else // Si el texto no ha cambiado no es una nueva búsqueda.
             //    nuevaBusqueda = false;
-            if (this.formaPrincipal.GetRichTextBox().Text.Contains(txtBuscar.Text))
+            if (this.formaPrincipal.GetRichTextBox().Text.Substring(indiceActual).Contains(txtBuscar.Text))
             {
                 /* Aquí se verifica si la búsqueda ya sobrepasa los límites de la cadena.
                     - Reiniciaremos los índices de búsqueda para que vuelva a empezar.*/
                 // if((indiceActual + txtBuscar.Text.Length) == this.formaPrincipal.GetRichTextBox().Text.Length)
+                
+                // Variable que guarda el índice en donde comienza la cadena para seleccionarla.
+                inicio = this.formaPrincipal.GetRichTextBox().Text.IndexOf(txtBuscar.Text, indiceActual);
                 if (inicio == -1)
-                {
                     inicio = indiceActual = 0;
-                }
-                else
-                {
-                    // Variable que guarda el índice en donde comienza la cadena para seleccionarla.
-                    inicio = this.formaPrincipal.GetRichTextBox().Text.IndexOf(txtBuscar.Text, indiceActual);
-                    // Inicio de la cadena y su tamaño.
-                    this.formaPrincipal.GetRichTextBox().Select(inicio, txtBuscar.Text.Length);
-                    // Mostrar que seleccione la ventana del Bloc para ver la selección.
-                    //MessageBox.Show("Presiona la ventana del Bloc de Notas para ver la selección.");
-                    // Ahora especificar el índice actual.
-                    indiceActual = this.formaPrincipal.GetRichTextBox().Text.LastIndexOf(txtBuscar.Text) - 1;
-                }
+                // Inicio de la cadena y su tamaño.
+                this.formaPrincipal.GetRichTextBox().Select(inicio, txtBuscar.Text.Length);
+                // Mostrar que seleccione la ventana del Bloc para ver la selección.
+                //MessageBox.Show("Presiona la ventana del Bloc de Notas para ver la selección.");
+                // Ahora especificar el índice actual.
+                indiceActual = this.formaPrincipal.GetRichTextBox().Text.LastIndexOf(txtBuscar.Text) - 1;
             }
             else // Si no se encuentra el texto, mostrar ese cuadro.
                 MessageBox.Show("No se encontró \"" + txtBuscar.Text + "\"");
