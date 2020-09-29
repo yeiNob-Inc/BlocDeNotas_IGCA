@@ -136,9 +136,17 @@ namespace Notepad
          */
         private void buscarToolStripMenuItem_MouseUp(object sender, MouseEventArgs e)
         {
-            Buscar b = new Buscar(richTextBox1);
-            b.ShowDialog();
+            Buscar b = new Buscar(this);
+            b.Show();
         }
+        public RichTextBox GetRichTextBox()
+        {
+            return richTextBox1;
+        }
+        //public static void SelectTextBox(int indice, int largoCadena)
+        //{
+        //    richTextBox1.Select(indice, largoCadena);
+        //}
         /* - Método que preguntará si se quieren guardar los cambios cuando
 se ha modificado el archivo.*/
 
