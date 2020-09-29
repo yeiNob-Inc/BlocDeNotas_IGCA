@@ -14,16 +14,12 @@ namespace Notepad
 {
     public partial class BlocDeNotas : Form
     {
-        // Atributo que indica si se abrió un archivo.
-        private static bool archivoAbierto = false;
-        // Atributo que indica el nombre del archivo actual.
-        private static string nombreArchivo = "Sin título: Bloc de Notas";
+        
+        
         // Variable que guarda el texto inicial cuando no se han hecho cambios.
         private string textoInicial = "";
-        // Este atributo indica el tamaño de la cadena del nombre del archivo.
-        private int tamNombre = "Sin título".Length;
-        // Atributo que indicará si está abierto un archivo existente o no.
-        private bool existeArchivo = false;
+        
+        
         public BlocDeNotas()
         {
             InitializeComponent();
@@ -101,24 +97,10 @@ namespace Notepad
                 richTextBox1.Font = myFont.Font;
             }
         }
-        // Método que devuelve si hay un archivo abierto actualmente,
-        public static bool isArchivoAbierto()
-        {
-            return archivoAbierto;
-        }
-        // Método que regresa el nombre del archivo actual.
-        public static string getNombreArchivo()
-        {
-            return nombreArchivo;
-        }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-            // Si el texto inicial es diferente al texto actual de la caja de texto, indicarlo.
-            if (IsTextoCambiado())
-                this.Text = "*" + nombreArchivo;
-            else // Si la cadena es igual a la inicial, quitar el asterisco.
-                this.Text = nombreArchivo;
+            this.Text = Archivo.AsteriscoEnTitulo(IsTextoCambiado());
         }
         // Método que indicará si el texto del archivo ha cambiado o no.
         private bool IsTextoCambiado()
