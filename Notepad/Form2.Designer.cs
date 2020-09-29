@@ -63,12 +63,14 @@
             this.toolStripNoGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             resources.ApplyResources(this.toolStripNoGuardar, "toolStripNoGuardar");
             this.toolStripNoGuardar.Name = "toolStripNoGuardar";
+            this.toolStripNoGuardar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.toolStripNoGuardar_MouseUp);
             // 
             // toolStripCancelar
             // 
             resources.ApplyResources(this.toolStripCancelar, "toolStripCancelar");
             this.toolStripCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripCancelar.Name = "toolStripCancelar";
+            this.toolStripCancelar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.toolStripCancelar_MouseUp);
             // 
             // GuardarComo
             // 

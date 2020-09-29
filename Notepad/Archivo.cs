@@ -56,12 +56,12 @@ namespace Notepad
                 -> Vamos a abrir un archivo.
                 -> Vamos a crear un nuevo archivo.
                 -> Vamos a salir del Bloc sin guardar.*/
-        public static void HayCambios(bool isTextoCambiado)
+        public static void HayCambios(bool isTextoCambiado, string contenido)
         {
             // Si ha cambiado el texto
             if (isTextoCambiado)
             {   // Si se ha modificado el texto, mostrará la ventana de guardado.
-                GuardarComo g = new GuardarComo(nombreArchivo, tamNombre);
+                GuardarComo g = new GuardarComo(nombreArchivo, tamNombre, contenido);
                 g.ShowDialog();
             }
 

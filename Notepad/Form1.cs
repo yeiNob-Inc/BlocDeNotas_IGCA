@@ -33,34 +33,44 @@ namespace Notepad
 
         private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Archivo.HayCambios(IsTextoCambiado());
-            Archivo.AbrirArchivo(richTextBox1);
-            CambiarTitulo();
-            // Como se abrió un archivo, su texto es el inicial.
-            textoInicial = richTextBox1.Text;
+            Archivo.HayCambios(IsTextoCambiado(), richTextBox1.Text);
+            if (GuardarComo.GetCuadroDialogoValor() != DialogResult.Cancel)
+            {
+                Archivo.AbrirArchivo(richTextBox1);
+                CambiarTitulo();
+                // Como se abrió un archivo, su texto es el inicial.
+                textoInicial = richTextBox1.Text;
+            }
         }
 
         private void guardarComoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Archivo.GuardarComo(richTextBox1.Text);
-            CambiarTitulo();
-            // Como se guardó el archivo, entonces el texto inicial es este.
-            textoInicial = richTextBox1.Text;
+            if (GuardarComo.GetCuadroDialogoValor() != DialogResult.Cancel)
+            {
+                CambiarTitulo();
+                // Como se guardó el archivo, entonces el texto inicial es este.
+                textoInicial = richTextBox1.Text;
+            }
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Archivo.HayCambios(IsTextoCambiado());
-            Environment.Exit(0);
+            Archivo.HayCambios(IsTextoCambiado(), richTextBox1.Text);
+            if (GuardarComo.GetCuadroDialogoValor() != DialogResult.Cancel)
+                Environment.Exit(0);
         }
 
         private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Archivo.HayCambios(IsTextoCambiado());
-            richTextBox1.Clear();
-            textoInicial = richTextBox1.Text;
-            this.Text = tituloBloc = "Sin título: Bloc de Notas";
-            Archivo.SetExisteArchivoFalse();
+            Archivo.HayCambios(IsTextoCambiado(), richTextBox1.Text);
+            if (GuardarComo.GetCuadroDialogoValor() != DialogResult.Cancel)
+            {
+                richTextBox1.Clear();
+                textoInicial = richTextBox1.Text;
+                this.Text = tituloBloc = "Sin título: Bloc de Notas";
+                Archivo.SetExisteArchivoFalse();
+            }
         }
 
         private void copiarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -118,10 +128,16 @@ namespace Notepad
         // Evento para que cuando se le dé a la "X" y se esté cerrando, se fije si hay cambios.
         private void BlocDeNotas_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Archivo.HayCambios(IsTextoCambiado());
+            // Esta no sé cómo evitar que se cierre.
+            Archivo.HayCambios(IsTextoCambiado(), richTextBox1.Text);
+        }
+
+        private void buscarToolStripMenuItem_MouseUp(object sender, MouseEventArgs e)
+        {
+            // richTextBox1.Select;
         }
         /* - Método que preguntará si se quieren guardar los cambios cuando
-       se ha modificado el archivo.*/
+se ha modificado el archivo.*/
 
     }
 }
