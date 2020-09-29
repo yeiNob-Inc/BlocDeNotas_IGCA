@@ -131,10 +131,13 @@ namespace Notepad
             // Esta no sé cómo evitar que se cierre.
             Archivo.HayCambios(IsTextoCambiado(), richTextBox1.Text);
         }
-
+        /* FUENTE: Find text in string with C#
+         * https://stackoverflow.com/questions/10709821/find-text-in-string-with-c-sharp
+         */
         private void buscarToolStripMenuItem_MouseUp(object sender, MouseEventArgs e)
         {
-            // richTextBox1.Select;
+            Buscar b = new Buscar(richTextBox1);
+            b.ShowDialog();
         }
         /* - Método que preguntará si se quieren guardar los cambios cuando
 se ha modificado el archivo.*/
