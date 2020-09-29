@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 
 
 namespace Notepad
@@ -25,42 +17,11 @@ namespace Notepad
         {
             InitializeComponent();
         }
-
+        /* - MENÚ ARCHIVO - */
         private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Archivo.HayCambios(IsTextoCambiado(), richTextBox1.Text);
-            if (GuardarComo.GetCuadroDialogoValor() != DialogResult.Cancel)
-            {
-                Archivo.AbrirArchivo(richTextBox1);
-                CambiarTitulo();
-                // Como se abrió un archivo, su texto es el inicial.
-                textoInicial = richTextBox1.Text;
-            }
-        }
-
-        private void guardarComoToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Archivo.GuardarComo(richTextBox1.Text);
-            if (GuardarComo.GetCuadroDialogoValor() != DialogResult.Cancel)
-            {
-                CambiarTitulo();
-                // Como se guardó el archivo, entonces el texto inicial es este.
-                textoInicial = richTextBox1.Text;
-            }
-        }
-
-        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Archivo.HayCambios(IsTextoCambiado(), richTextBox1.Text);
-            if (GuardarComo.GetCuadroDialogoValor() != DialogResult.Cancel)
-                Environment.Exit(0);
-        }
-
         private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Archivo.HayCambios(IsTextoCambiado(), richTextBox1.Text);
@@ -72,7 +33,40 @@ namespace Notepad
                 Archivo.SetExisteArchivoFalse();
             }
         }
-
+        private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Archivo.HayCambios(IsTextoCambiado(), richTextBox1.Text);
+            if (GuardarComo.GetCuadroDialogoValor() != DialogResult.Cancel)
+            {
+                Archivo.AbrirArchivo(richTextBox1);
+                CambiarTitulo();
+                // Como se abrió un archivo, su texto es el inicial.
+                textoInicial = richTextBox1.Text;
+            }
+        }
+        private void guardarToolStripMenuItem1_MouseUp(object sender, MouseEventArgs e)
+        {
+            Archivo.Guardar(richTextBox1.Text);
+            CambiarTitulo();
+            textoInicial = richTextBox1.Text; // Establecer el texto inicial.
+        }
+        private void guardarComoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Archivo.GuardarComo(richTextBox1.Text);
+            if (GuardarComo.GetCuadroDialogoValor() != DialogResult.Cancel)
+            {
+                CambiarTitulo();
+                // Como se guardó el archivo, entonces el texto inicial es este.
+                textoInicial = richTextBox1.Text;
+            }
+        }
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Archivo.HayCambios(IsTextoCambiado(), richTextBox1.Text);
+            if (GuardarComo.GetCuadroDialogoValor() != DialogResult.Cancel)
+                Environment.Exit(0);
+        }
+        /* - MENÚ EDICIÓN - */
         private void copiarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             richTextBox1.Copy();
@@ -87,7 +81,14 @@ namespace Notepad
         {
             richTextBox1.Paste();
         }
-
+        /* - Para abrir la forma con el cuadro de búsqueda.*/
+        private void buscarToolStripMenuItem_MouseUp(object sender, MouseEventArgs e)
+        {
+            Buscar b = new Buscar(this);
+            // Aquí muestra el cuadro de Búsqueda pero sin sobreponerlo forzosamente.
+            b.Show();
+        }
+        /* Método para cambiar la fuente del bloc.*/
         private void fuenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FontDialog myFont  = new FontDialog();
@@ -97,7 +98,7 @@ namespace Notepad
                 richTextBox1.Font = myFont.Font;
             }
         }
-
+        /* - Método que revisa si hay cambios en el cuadro de texto.*/
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
             AsteriscoEnTitulo(); //Para poner un asterisco si el texto cambió.
@@ -131,23 +132,9 @@ namespace Notepad
             // Esta no sé cómo evitar que se cierre.
             Archivo.HayCambios(IsTextoCambiado(), richTextBox1.Text);
         }
-        
-        private void buscarToolStripMenuItem_MouseUp(object sender, MouseEventArgs e)
-        {
-            Buscar b = new Buscar(this);
-            // Aquí muestra el cuadro de Búsqueda pero sin sobreponerlo forzosamente.
-            b.Show();
-        }
         public RichTextBox GetRichTextBox()
         {
             return richTextBox1;
-        }
-
-        private void guardarToolStripMenuItem1_MouseUp(object sender, MouseEventArgs e)
-        {
-            Archivo.Guardar(richTextBox1.Text);
-            CambiarTitulo();
-            textoInicial = richTextBox1.Text; // Establecer el texto inicial.
         }
     }
 }
