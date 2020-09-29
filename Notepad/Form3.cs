@@ -61,11 +61,17 @@ namespace Notepad
                     // Variable que guarda el índice en donde comienza la cadena para seleccionarla.
                     inicio = this.formaPrincipal.GetRichTextBox().Text.IndexOf(txtBuscar.Text, indiceActual);
                     // Inicio de la cadena y su tamaño.
+                    if (inicio == -1)
+                    {
+                        indiceActual = 0;
+                        // Volver a hacer la búsqueda con el índice reiniciado.
+                        inicio = this.formaPrincipal.GetRichTextBox().Text.IndexOf(txtBuscar.Text, indiceActual);
+                    }
                     this.formaPrincipal.GetRichTextBox().Select(inicio, txtBuscar.Text.Length);
                     // Mostrar que seleccione la ventana del Bloc para ver la selección.
                     //MessageBox.Show("Presiona la ventana del Bloc de Notas para ver la selección.");
                     // Ahora especificar el índice actual.
-                    indiceActual = this.formaPrincipal.GetRichTextBox().Text.LastIndexOf(txtBuscar.Text) - 1;
+                    indiceActual = inicio + txtBuscar.Text.Length;
                 }
             }
             else // Si no se encuentra el texto, mostrar ese cuadro.
