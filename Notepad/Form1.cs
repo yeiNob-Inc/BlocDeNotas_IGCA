@@ -18,8 +18,9 @@ namespace Notepad
         
         // Variable que guarda el texto inicial cuando no se han hecho cambios.
         private string textoInicial = "";
-        
-        
+        // Atributo que guardará la cadena para el título de la ventana del Bloc.
+        private string tituloBloc = "Sin título: Bloc de Notas";
+
         public BlocDeNotas()
         {
             InitializeComponent();
@@ -32,45 +33,34 @@ namespace Notepad
 
         private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Si se han hecho modificaciones preguntar que si quiere guardar.
-            Archivo.HayCambios(IsTextoCambiado(), nombreArchivo, tamNombre); ;
-            // if(isTextoCambiado())
-            // Código de procedimiento aquí.
-
-            nombreArchivo = Archivo.AbrirArchivo(richTextBox1);
-            // Aquí se saca el tamaño del nombre sin la extensión final, por eso le resto 4.
-            tamNombre = nombreArchivo.Length - 4;
-            // Establecer el nombre del archivo arriba.
-            // El SafeFileName regresa el texto sin el directorio.
-            this.Text = nombreArchivo += ": Bloc de Notas";
-            //this.Text = nombreArchivo + ": Bloc de Notas";
+            Archivo.HayCambios(IsTextoCambiado());
+            Archivo.AbrirArchivo(richTextBox1);
+            CambiarTitulo();
             // Como se abrió un archivo, su texto es el inicial.
             textoInicial = richTextBox1.Text;
-            // Indicar que ya se abrió un archivo.
-            archivoAbierto = existeArchivo = true;
         }
 
         private void guardarComoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Archivo.GuardarComo(richTextBox1.Text);
+            CambiarTitulo();
             // Como se guardó el archivo, entonces el texto inicial es este.
             textoInicial = richTextBox1.Text;
-            existeArchivo = true;
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Archivo.HayCambios(IsTextoCambiado(), );
+            Archivo.HayCambios(IsTextoCambiado());
             Environment.Exit(0);
         }
 
         private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Archivo.HayCambios(IsTextoCambiado());
             richTextBox1.Clear();
-
-            this.Text = nombreArchivo = "Sin título: Bloc de Notas";
-            // Indicar que ahora mismo no hay un archivo abierto, ya que este es nuevo y no tiene título.
-            archivoAbierto = false;
+            textoInicial = richTextBox1.Text;
+            this.Text = tituloBloc = "Sin título: Bloc de Notas";
+            Archivo.SetExisteArchivoFalse();
         }
 
         private void copiarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -100,7 +90,23 @@ namespace Notepad
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-            this.Text = Archivo.AsteriscoEnTitulo(IsTextoCambiado());
+            AsteriscoEnTitulo(); //Para poner un asterisco si el texto cambió.
+            // this.Text = tituloBloc;
+        }
+        /* - MÉTODO QUE PONE UN ASTERISCO AL INICIO SI HAY UN CAMBIO EN EL ARCHIVO.*/
+        private void AsteriscoEnTitulo()
+        {
+            // Si el texto inicial es diferente al texto actual de la caja de texto, indicarlo.
+            if (IsTextoCambiado())
+                this.Text = "*" + CambiarTitulo();
+            else // Si la cadena es igual a la inicial, quitar el asterisco.
+                this.Text = CambiarTitulo();
+        }
+        /* - Método que cambia el atributo del título del bloc.*/
+        private string CambiarTitulo()
+        {
+            this.Text = Archivo.GetNombreArchivo() + ": Bloc de notas";
+            return tituloBloc = Archivo.GetNombreArchivo() + ": Bloc de notas";
         }
         // Método que indicará si el texto del archivo ha cambiado o no.
         private bool IsTextoCambiado()

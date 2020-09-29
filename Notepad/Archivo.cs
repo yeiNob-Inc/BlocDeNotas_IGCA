@@ -16,8 +16,6 @@ namespace Notepad
     {
         // Este atributo indica el tamaño de la cadena del nombre del archivo.
         private static int tamNombre = "Sin título".Length;
-        // Atributo que guardará la cadena para el título de la ventana del Bloc.
-        private static string tituloBloc = "Sin título: Bloc de Notas";
         // Atributo que indica el nombre del archivo actual.
         private static string nombreArchivo = "Sin título";
         // Aquí se guardará el directorio del archivo actual.
@@ -28,7 +26,7 @@ namespace Notepad
         private static bool existeArchivo = false;
         /* Método que abre el cuadro para abrir un archivo,
             y regresa su nombre.*/
-        public static string AbrirArchivo(RichTextBox texto)
+        public static void AbrirArchivo(RichTextBox texto)
         {
             OpenFileDialog abrir = new OpenFileDialog();
             // Poner un filtro para el tipo de archivos que se muestran.
@@ -40,6 +38,7 @@ namespace Notepad
                 texto.Text = File.ReadAllText(abrir.FileName);
                 // Aquí guarda el nombre del archivo con su extensión.
                 nombreArchivo = abrir.SafeFileName;
+                Console.WriteLine("\n -> Nombre del archivo: " + nombreArchivo);
                 // Aquí cambiamos el tamaño del nombre restándole su extensión.
                 tamNombre = nombreArchivo.Length - 4;
                 // Aquí se guarda el directorio con el nombre del archivo.
@@ -48,10 +47,10 @@ namespace Notepad
                 existeArchivo = true;
                 // Indicar que ya hay un archivo abierto.
                 archivoAbierto = true;
-                // Cambiamos el título de la ventana.
-                CambiarTitulo(nombreArchivo);
+                //// Cambiamos el título de la ventana.
+                //CambiarTitulo(nombreArchivo);
             }
-            return abrir.SafeFileName;
+            //return abrir.SafeFileName;
         }
         /* MÉTODO QUE MUESTRA VENTANA DE GUARDAR CAMBIOS SI LOS HAY.
             - Esta es para los siguientes escenarios:
@@ -98,8 +97,8 @@ namespace Notepad
                     existeArchivo = true;
                     // Indicar que ya hay un archivo abierto.
                     archivoAbierto = true;
-                    // Cambiamos el título de la ventana.
-                    CambiarTitulo(nombreArchivo);
+                    //// Cambiamos el título de la ventana.
+                    //CambiarTitulo(nombreArchivo);
                     MessageBox.Show("Archivo guardado con éxito.");
                 }
             }
@@ -117,31 +116,22 @@ namespace Notepad
             else // Si no existe el archivo, llamar a GuardarComo().
                 GuardarComo(contenido);
         }
-        /* - Método que cambia el atributo del título del bloc.*/
-        private static void CambiarTitulo(string nomArchivo)
-        {
-            tituloBloc = nomArchivo + ": Bloc de notas";
-        }
-        /* - MÉTODO QUE PONE UN ASTERISCO AL INICIO SI HAY UN CAMBIO EN EL ARCHIVO.*/
-        public static string AsteriscoEnTitulo(bool isTextoCambiado)
-        {
-            // Si el texto inicial es diferente al texto actual de la caja de texto, indicarlo.
-            if (isTextoCambiado)
-                tituloBloc = "*" + nombreArchivo;
-            else // Si la cadena es igual a la inicial, quitar el asterisco.
-                tituloBloc = nombreArchivo;
-            return tituloBloc;
-
-        }
+        
+        
         // Método que devuelve si hay un archivo abierto actualmente,
-        public static bool isArchivoAbierto()
+        public static bool IsArchivoAbierto()
         {
             return archivoAbierto;
         }
         // Método que regresa el nombre del archivo actual.
-        public static string getNombreArchivo()
+        public static string GetNombreArchivo()
         {
             return nombreArchivo;
+        }
+        // Método que establece que el archivo no existe.
+        public static void SetExisteArchivoFalse()
+        {
+            existeArchivo = false;
         }
         ///* - Método que cambia los atributos de nomreArchivo, directorio, y esos.*/
         //private static void cambiarAtributosArchivo(FileDialog archivo)
