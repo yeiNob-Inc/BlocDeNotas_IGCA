@@ -79,34 +79,34 @@
             // nuevoToolStripMenuItem
             // 
             this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.nuevoToolStripMenuItem.Text = "Nuevo";
             this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
             // 
             // abrirToolStripMenuItem
             // 
             this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
-            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.abrirToolStripMenuItem.Text = "Abrir...";
             this.abrirToolStripMenuItem.Click += new System.EventHandler(this.abrirToolStripMenuItem_Click);
             // 
             // guardarToolStripMenuItem1
             // 
             this.guardarToolStripMenuItem1.Name = "guardarToolStripMenuItem1";
-            this.guardarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.guardarToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
             this.guardarToolStripMenuItem1.Text = "Guardar";
             // 
             // guardarComoToolStripMenuItem1
             // 
             this.guardarComoToolStripMenuItem1.Name = "guardarComoToolStripMenuItem1";
-            this.guardarComoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.guardarComoToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
             this.guardarComoToolStripMenuItem1.Text = "Guardar como...";
             this.guardarComoToolStripMenuItem1.Click += new System.EventHandler(this.guardarComoToolStripMenuItem1_Click);
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -147,6 +147,7 @@
             this.buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
             this.buscarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.buscarToolStripMenuItem.Text = "Buscar...";
+            this.buscarToolStripMenuItem.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buscarToolStripMenuItem_MouseUp);
             // 
             // formatoToolStripMenuItem
             // 
@@ -159,7 +160,7 @@
             // fuenteToolStripMenuItem
             // 
             this.fuenteToolStripMenuItem.Name = "fuenteToolStripMenuItem";
-            this.fuenteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fuenteToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.fuenteToolStripMenuItem.Text = "Fuente";
             this.fuenteToolStripMenuItem.Click += new System.EventHandler(this.fuenteToolStripMenuItem_Click);
             // 
@@ -188,6 +189,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "BlocDeNotas";
             this.Text = "Sin título: Bloc de Notas";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BlocDeNotas_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

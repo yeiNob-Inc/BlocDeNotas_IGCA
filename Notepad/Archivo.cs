@@ -38,7 +38,6 @@ namespace Notepad
                 texto.Text = File.ReadAllText(abrir.FileName);
                 // Aquí guarda el nombre del archivo con su extensión.
                 nombreArchivo = abrir.SafeFileName;
-                Console.WriteLine("\n -> Nombre del archivo: " + nombreArchivo);
                 // Aquí cambiamos el tamaño del nombre restándole su extensión.
                 tamNombre = nombreArchivo.Length - 4;
                 // Aquí se guarda el directorio con el nombre del archivo.
@@ -57,12 +56,12 @@ namespace Notepad
                 -> Vamos a abrir un archivo.
                 -> Vamos a crear un nuevo archivo.
                 -> Vamos a salir del Bloc sin guardar.*/
-        public static void HayCambios(bool isTextoCambiado)
+        public static void HayCambios(bool isTextoCambiado, string contenido)
         {
             // Si ha cambiado el texto
             if (isTextoCambiado)
             {   // Si se ha modificado el texto, mostrará la ventana de guardado.
-                GuardarComo g = new GuardarComo(nombreArchivo, tamNombre);
+                GuardarComo g = new GuardarComo(nombreArchivo, tamNombre, contenido);
                 g.ShowDialog();
             }
 
